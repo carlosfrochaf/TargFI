@@ -2,99 +2,80 @@
 
 // Project Data Store for Modals
 const projectsData = {
+  ferreiradash: {
+    title: "FerreiraDash — Gestão Financeira, Audiências & Pagamentos",
+    category: "Dashboards & Gestão Operacional",
+    tagColor: "bg-sky-500/10 text-sky-400 border-sky-500/20",
+    image: "assets/project-ferreiradash.svg",
+    badge: "Case Real de Advocacia",
+    headline: "Painel sob medida para advogados acompanharem datas de audiências, recebimento de honorários e controle de acordos.",
+    problem: "Escritórios de advocacia perdiam o controle das datas de audiências (presenciais e virtuais), prazos de vencimento de parcelas de acordos judiciais e honorários a receber, dependendo de anotações soltas ou planilhas difíceis de atualizar.",
+    solution: "Desenvolvemos o FerreiraDash: um painel visual e prático, pensado especificamente para a rotina jurídica. Reúne em uma única tela o calendário de audiências da semana, datas e valores de pagamentos futuros, fluxo financeiro do escritório e exportação de relatórios.",
+    results: [
+      "Controle rigoroso de datas de pagamentos e parcelas de acordos sem atrasos",
+      "Grade semanal clara das próximas audiências com indicação de modalidade (telepresencial/presencial)",
+      "Previsibilidade financeira com total de honorários recebidos e a receber",
+      "Interface limpa, rápida e acessível pelo celular ou computador"
+    ],
+    techStack: ["HTML5 / Tailwind CSS", "JavaScript ES6+", "Gestão Financeira", "Grade de Audiências", "Exportação Excel/PDF"],
+    whatsappMessage: "Olá TARGFI! Vi o projeto FerreiraDash no site e gostaria de um dashboard financeiro e de audiências personalizado para meu escritório/empresa."
+  },
+
   fichaadv: {
     title: "FichaAdv — Sistema de Gestão Jurídica & Fichas de Atendimento",
     category: "Aplicação Web & Gestão Sob Medida",
-    tagColor: "bg-sky-500/10 text-sky-400 border-sky-500/20",
+    tagColor: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20",
     image: "assets/project-fichaadv.svg",
     badge: "Case de Sucesso Real",
-    headline: "Transformando o atendimento de escritórios jurídicos em uma operação ágil e padronizada.",
-    problem: "Escritórios de advocacia perdiam horas valiosas colhendo dados em papéis, fichas manuais ou documentos Word espalhados, resultando em retrabalho, perda de dados e dificuldade na elaboração de petições iniciais e procurações.",
-    solution: "Desenvolvemos o FichaAdv: uma aplicação web moderna, responsiva e intuitiva onde advogados e atendentes cadastram rapidamente clientes, qualificações, detalhes processuais, documentos e relatórios padronizados com 1 clique.",
+    headline: "Transformando o atendimento de escritórios em uma operação ágil, rápida e padronizada.",
+    problem: "Escritórios perdiam tempo colhendo dados de clientes em papéis, fichas manuais ou documentos Word espalhados, resultando em retrabalho, lentidão na elaboração de petições iniciais e dificuldade para encontrar dados antigos.",
+    solution: "Desenvolvemos o FichaAdv: uma aplicação web ágil onde o atendente ou advogado cadastra clientes, dados processuais, qualificações e documentos com facilidade, gerando fichas completas e padronizadas em segundos.",
     results: [
       "Redução de 60% no tempo de preenchimento e triagem de clientes",
-      "Geração instantânea de minutas e documentos anexos",
-      "Banco de dados seguro e centralizado com busca instantânea por CPF ou nome",
-      "Interface fluida acessível pelo computador ou tablet"
+      "Geração instantânea de minutas e fichas padronizadas",
+      "Banco de dados seguro com busca instantânea por CPF ou nome",
+      "Interface fluida acessível de qualquer dispositivo"
     ],
-    techStack: ["HTML5 / Tailwind CSS", "JavaScript ES6+", "Local/Cloud Database", "Geração de Documentos", "Design System Adaptativo"],
+    techStack: ["HTML5 / Tailwind CSS", "JavaScript ES6+", "Banco de Dados Seguro", "Geração de Fichas", "Design Responsivo"],
     whatsappMessage: "Olá TARGFI! Vi o projeto FichaAdv no site e gostaria de saber mais sobre como criar um sistema similar de fichas e gestão para o meu negócio."
   },
 
-  botdje: {
-    title: "Robô Monitor DJE / DEJT & TRT-3 com Alertas em Tempo Real",
-    category: "Automação & Robôs Inteligentes (RPA)",
+  ecommerce: {
+    title: "Loja Virtual & E-commerce de Alta Conversão",
+    category: "E-commerce & Lojas Virtuais",
     tagColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-    image: "assets/project-botdje.svg",
-    badge: "Automação de Alto Impacto",
-    headline: "Monitoramento 24/7 de publicações em diários da justiça com envio automático de avisos no Telegram.",
-    problem: "Advogados e equipes precisavam baixar manualmente cadernos de diários oficiais com milhares de páginas todos os dias pela manhã, arriscando perder prazos judiciais fatais ou gastando mais de uma hora diária em conferências manuais.",
-    solution: "Criamos um robô inteligente em Python que roda de forma programada e silenciosa: faz o download automático dos cadernos judiciais (DJE / DEJT / TRT-3), lê o conteúdo via OCR/parsing de texto, cruza com a lista de clientes e processos e dispara alertas formatados instantaneamente no Telegram com o link direto e extrato do andamento.",
+    image: "assets/project-ecommerce.svg",
+    badge: "Vendas Online 24/7",
+    headline: "Sua loja vendendo no automático com vitrine moderna, checkout PIX instantâneo e integração WhatsApp.",
+    problem: "Empresas e empreendedores que vendem apenas pelas redes sociais perdem muito tempo enviando fotos uma a uma no direct, calculando frete na mão e perdendo clientes pela demora no fechamento da compra.",
+    solution: "Desenvolvemos e-commerces e catálogos interativos rápidos: vitrine de produtos organizada por categorias, cálculo de frete, pagamento facilitado por PIX ou cartão de crédito e opção de envio do pedido completo direto no WhatsApp da loja.",
     results: [
-      "Economia comprovada de mais de 1h30 diária por profissional",
-      "Zero risco de perda de prazo processual com varreduras matinais automáticas",
-      "Notificações ricas no Telegram com informações essenciais do processo",
-      "Execução em nuvem sem necessidade de manter computador ligado"
+      "Processo de compra automatizado sem depender de atendimento manual no direct",
+      "Recebimento rápido via PIX com confirmação imediata",
+      "Catálogo online leve e ultrarrápido no celular",
+      "Painel prático para cadastro de fotos, preços e promoções"
     ],
-    techStack: ["Python", "Web Scraping & Automação", "Telegram Bot API", "Processamento de PDFs", "Agendamento Automatizado (Cron)"],
-    whatsappMessage: "Olá TARGFI! Fiquei impressionado com o Robô do DJE/TRT-3. Gostaria de entender como vocês podem automatizar o monitoramento de dados ou rotinas para minha empresa."
-  },
-
-  agendai: {
-    title: "Agenda Aí — Plataforma Inteligente de Agendamento Online",
-    category: "Aplicações Web & Produtividade",
-    tagColor: "bg-purple-500/10 text-purple-400 border-purple-500/20",
-    image: "assets/project-agendai.svg",
-    badge: "Produtividade Comercial",
-    headline: "Organização de agendas, confirmação de horários e redução radical de faltas de clientes.",
-    problem: "Profissionais liberais e empresas sofriam com conflitos de horários em agendas manuais, mensagens demoradas para confirmar horários no WhatsApp e alta taxa de clientes que esqueciam de comparecer às reuniões ou atendimentos.",
-    solution: "Criamos o 'Agenda Aí', uma solução limpa e direta onde o cliente final escolhe o melhor dia e horário disponível e recebe confirmação imediata. O profissional tem um painel intuitivo para acompanhar sua grade do dia, semana e mês com relatórios de presença.",
-    results: [
-      "Aumento de 35% na pontualidade e presença de clientes",
-      "Eliminação de 100% dos conflitos de duplo agendamento",
-      "Visualização clara em grade de horários com filtros rápidos",
-      "Integração com alertas e lembretes automáticos"
-    ],
-    techStack: ["Modern Frontend", "Gestão de Estados", "Calendário Interativo", "Automação de Lembretes", "UX Mobile-First"],
-    whatsappMessage: "Olá TARGFI! Gostei muito do projeto Agenda Aí e quero um sistema de agendamento personalizado para meus serviços."
+    techStack: ["E-commerce Moderno", "Checkout Rápido PIX/Cartão", "Integração WhatsApp", "Catálogo Dinâmico", "SEO para Vendas"],
+    whatsappMessage: "Olá TARGFI! Gostaria de criar uma loja virtual / e-commerce moderno para os meus produtos. Podemos conversar?"
   },
 
   fenix: {
-    title: "Landing Page Fênix Contábil & Sites Institucionais de Alta Conversão",
+    title: "Landing Page Fênix Contábil & Sites Institucionais",
     category: "Sites & Landing Pages",
     tagColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
     image: "assets/project-fenix.svg",
     badge: "Foco em Conversão",
-    headline: "Posicionamento digital de autoridade com design premium e geração contínua de novos leads.",
-    problem: "Empresas com serviços excelentes, mas com sites ultrapassados, lentos no celular e sem estratégia de conversão, deixando de fechar novos contratos porque os visitantes não encontravam um caminho claro para solicitar orçamento.",
-    solution: "Desenvolvemos websites e landing pages ultrarrápidas, com visual moderno estilo dark/glassmorphism ou clean corporativo, carregamento instantâneo no celular, copywriting persuasivo e botões estratégicos que direcionam os visitantes qualificados direto para o WhatsApp comercial.",
+    headline: "Posicionamento digital com design corporativo e geração contínua de novos clientes.",
+    problem: "Empresas com serviços excelentes, mas com sites desatualizados, lentos no celular e sem botões estratégicos, deixando de fechar novos contratos porque os visitantes não encontravam um caminho claro para pedir orçamento.",
+    solution: "Desenvolvemos websites e landing pages com carregamento instantâneo no celular, visual corporativo refinado, copywriting persuasivo e botões estratégicos que direcionam os visitantes qualificados direto para o WhatsApp comercial.",
     results: [
       "Velocidade de carregamento superior a 95/100 no Google PageSpeed",
       "Aumento direto na taxa de cliques para abertura de conversas no WhatsApp",
       "Design 100% responsivo adaptado para celulares, notebooks e telas grandes",
-      "Otimização inicial para mecanismos de busca (SEO Local)"
+      "Otimização inicial para mecanismos de busca (SEO)"
     ],
     techStack: ["HTML5 Semântico", "Tailwind CSS", "Copywriting Comercial", "SEO & Performance", "Integração WhatsApp Direct"],
     whatsappMessage: "Olá TARGFI! Quero renovar o site da minha empresa / criar uma landing page de alta conversão. Gostaria de um orçamento."
-  },
-
-  dashboard: {
-    title: "TARGFI Analytics — Dashboards Executivos & Painéis de Controle",
-    category: "Dashboards & Business Intelligence",
-    tagColor: "bg-sky-500/10 text-sky-400 border-sky-500/20",
-    image: "assets/project-dashboard.svg",
-    badge: "Tomada de Decisão com Dados",
-    headline: "Substitua planilhas cheias de abas por painéis interativos claros em tempo real.",
-    problem: "Empresários e gestores gastavam dias montando relatórios em Excel, perdidos em dezenas de tabelas confusas e sem saber em tempo real como estava o faturamento, metas, status de atendimentos ou gargalos operacionais.",
-    solution: "Desenvolvemos dashboards web interativos sob medida, conectados com planilhas Google, bancos de dados ou APIs, exibindo gráficos claros, filtros por data e alertas visuais que qualquer membro da equipe consegue entender e usar.",
-    results: [
-      "Visão 360° dos principais indicadores da empresa em uma única tela",
-      "Economia de até 8 horas semanais antes gastas gerando relatórios manuais",
-      "Filtros dinâmicos por período, filial, vendedor ou status",
-      "Acesso seguro de qualquer computador ou celular"
-    ],
-    techStack: ["Chart.js / DataViz", "Tailwind CSS", "Conexão com Sheets / APIs", "Filtros em Tempo Real", "Exportação Excel/PDF"],
-    whatsappMessage: "Olá TARGFI! Preciso de um Dashboard para acompanhar os dados da minha empresa. Como podemos montar um projeto?"
   }
 };
 
@@ -121,86 +102,86 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* -------------------------------------------------------------
-   1. Interactive Live Dashboard Simulation (Chart.js)
+   1. Interactive Live Dashboard Simulation (FerreiraDash Theme)
 ------------------------------------------------------------- */
 let liveChartInstance = null;
 
 const chartDataPresets = {
-  vendas: {
-    label: "Receita Operacional (R$ mil)",
+  financeiro: {
+    label: "Honorários & Entradas (R$ mil)",
     hoje: {
       labels: ["08h", "10h", "12h", "14h", "16h", "18h", "20h"],
-      data: [3.2, 5.8, 8.4, 11.2, 14.5, 18.2, 21.0],
-      stat1: "R$ 21.000",
-      stat2: "14 Novos Clientes",
-      stat3: "99.4% Conversão"
+      data: [4.2, 8.5, 12.0, 18.2, 25.0, 34.0, 42.5],
+      stat1: "R$ 42.500 Recebidos",
+      stat2: "R$ 18.200 A Receber",
+      stat3: "100% Acordos em Dia"
     },
     semana: {
       labels: ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
-      data: [18.4, 24.2, 31.0, 29.5, 38.6, 22.1, 14.2],
-      stat1: "R$ 178.000",
-      stat2: "62 Contratos",
-      stat3: "+28% vs sem. ant."
+      data: [12.0, 18.5, 24.0, 22.0, 38.0, 42.5, 42.5],
+      stat1: "R$ 145.000 no Mês",
+      stat2: "18 Parcelas Pagas",
+      stat3: "Zero Inadimplência"
     },
     mes: {
       labels: ["Semana 1", "Semana 2", "Semana 3", "Semana 4"],
-      data: [110, 145, 172, 210],
-      stat1: "R$ 637.000",
-      stat2: "248 Clientes",
-      stat3: "+34.5% no Trimestre"
+      data: [68.0, 84.0, 112.0, 145.0],
+      stat1: "R$ 409.000 Acumulado",
+      stat2: "74 Honorários Faturados",
+      stat3: "+22% vs Tri. Anterior"
     }
   },
-  operacional: {
-    label: "Tarefas & Processos Automatizados",
+  audiencias: {
+    label: "Audiências & Prazos no Período",
     hoje: {
       labels: ["08h", "10h", "12h", "14h", "16h", "18h", "20h"],
-      data: [42, 115, 198, 280, 360, 440, 510],
-      stat1: "510 Tarefas",
-      stat2: "3h 40min Economizadas",
-      stat3: "Zero Falhas Manuais"
-    },
-    semana: {
-      labels: ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
-      data: [480, 520, 610, 580, 690, 310, 180],
-      stat1: "3.370 Execuções",
-      stat2: "24h Poupadas",
-      stat3: "100% Automatizado"
-    },
-    mes: {
-      labels: ["Semana 1", "Semana 2", "Semana 3", "Semana 4"],
-      data: [3100, 3450, 3900, 4200],
-      stat1: "14.650 Ações",
-      stat2: "98h Economizadas",
-      stat3: "R$ 18k Poupados"
-    }
-  },
-  juridico: {
-    label: "Andamentos & Fichas Capturadas",
-    hoje: {
-      labels: ["08h", "10h", "12h", "14h", "16h", "18h", "20h"],
-      data: [8, 19, 34, 48, 65, 82, 94],
-      stat1: "94 Publicações",
-      stat2: "18 Fichas Atualizadas",
+      data: [1, 2, 2, 3, 3, 3, 3],
+      stat1: "3 Audiências Hoje",
+      stat2: "2 Telepresenciais",
       stat3: "100% Prazos Checados"
     },
     semana: {
       labels: ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
-      data: [112, 145, 168, 154, 190, 42, 15],
-      stat1: "826 Movimentações",
-      stat2: "142 Clientes",
-      stat3: "0 Prazos Perdidos"
+      data: [4, 6, 8, 5, 7, 1, 0],
+      stat1: "31 Audiências na Semana",
+      stat2: "14 Varas Judiciais",
+      stat3: "Zero Conflitos de Agenda"
     },
     mes: {
       labels: ["Semana 1", "Semana 2", "Semana 3", "Semana 4"],
-      data: [780, 890, 960, 1120],
-      stat1: "3.750 Andamentos",
-      stat2: "620 Fichas Cadastradas",
-      stat3: "TRT3 & DJE Integrados"
+      data: [18, 24, 28, 35],
+      stat1: "105 Audiências no Mês",
+      stat2: "3 Advogados Atuantes",
+      stat3: "Controle Rigoroso"
+    }
+  },
+  fichas: {
+    label: "Atendimentos & Fichas de Clientes",
+    hoje: {
+      labels: ["08h", "10h", "12h", "14h", "16h", "18h", "20h"],
+      data: [2, 4, 7, 9, 12, 14, 16],
+      stat1: "16 Fichas Cadastradas",
+      stat2: "8 Minutas Geradas",
+      stat3: "Tempo Médio: 4 min"
+    },
+    semana: {
+      labels: ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
+      data: [22, 28, 34, 30, 36, 12, 5],
+      stat1: "167 Fichas na Semana",
+      stat2: "89 Clientes Atendidos",
+      stat3: "+60% Velocidade"
+    },
+    mes: {
+      labels: ["Semana 1", "Semana 2", "Semana 3", "Semana 4"],
+      data: [240, 290, 360, 420],
+      stat1: "1.310 Fichas no Banco",
+      stat2: "FichaAdv Integrada",
+      stat3: "Busca Instantânea"
     }
   }
 };
 
-let currentPreset = "vendas";
+let currentPreset = "financeiro";
 let currentPeriod = "semana";
 
 function initLiveChart() {
@@ -309,12 +290,12 @@ function updateChartData() {
   liveChartInstance.data.datasets[0].data = config.data;
 
   // Change color accent per preset
-  if (currentPreset === "operacional") {
-    liveChartInstance.data.datasets[0].borderColor = "#10B981";
-    liveChartInstance.data.datasets[0].pointBorderColor = "#10B981";
-  } else if (currentPreset === "juridico") {
-    liveChartInstance.data.datasets[0].borderColor = "#A855F7";
-    liveChartInstance.data.datasets[0].pointBorderColor = "#A855F7";
+  if (currentPreset === "audiencias") {
+    liveChartInstance.data.datasets[0].borderColor = "#FBBF24";
+    liveChartInstance.data.datasets[0].pointBorderColor = "#FBBF24";
+  } else if (currentPreset === "fichas") {
+    liveChartInstance.data.datasets[0].borderColor = "#818CF8";
+    liveChartInstance.data.datasets[0].pointBorderColor = "#818CF8";
   } else {
     liveChartInstance.data.datasets[0].borderColor = "#38BDF8";
     liveChartInstance.data.datasets[0].pointBorderColor = "#38BDF8";
@@ -456,29 +437,29 @@ function initBudgetSimulator() {
     const projectType = typeSelect.value;
     switch (projectType) {
       case "dashboard":
-        baseMin = 1500;
-        baseMax = 2800;
+        baseMin = 1400;
+        baseMax = 2600;
         baseDays = 10;
         break;
       case "app":
-        baseMin = 2200;
-        baseMax = 4200;
-        baseDays = 18;
+        baseMin = 1800;
+        baseMax = 3600;
+        baseDays = 15;
+        break;
+      case "ecommerce":
+        baseMin = 1600;
+        baseMax = 3200;
+        baseDays = 12;
         break;
       case "landing":
-        baseMin = 890;
-        baseMax = 1600;
+        baseMin = 790;
+        baseMax = 1500;
         baseDays = 6;
         break;
-      case "bot":
-        baseMin = 1400;
-        baseMax = 2600;
-        baseDays = 8;
-        break;
       case "completo":
-        baseMin = 3800;
-        baseMax = 7200;
-        baseDays = 25;
+        baseMin = 3200;
+        baseMax = 6200;
+        baseDays = 22;
         break;
     }
 

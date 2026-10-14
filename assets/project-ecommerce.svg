@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="ecBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="ecGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#ecBg)" />
+  <rect x="1" y="1" width="798" height="498" rx="15" stroke="#334155" stroke-width="1.5" />
+
+  <!-- Browser Header -->
+  <rect x="0" y="0" width="800" height="48" rx="16" fill="#1E293B" />
+  <circle cx="28" cy="24" r="6" fill="#EF4444" />
+  <circle cx="48" cy="24" r="6" fill="#F59E0B" />
+  <circle cx="68" cy="24" r="6" fill="#10B981" />
+  <rect x="180" y="10" width="440" height="28" rx="14" fill="#0F172A" stroke="#334155" />
+  <text x="240" y="28" font-family="system-ui, sans-serif" font-size="11.5" fill="#94A3B8">🔒 https://sualoja.targfi.com.br — E-commerce &amp; Loja Virtual</text>
+
+  <!-- Store Header -->
+  <g transform="translate(30, 64)">
+    <text x="0" y="24" font-family="system-ui, sans-serif" font-size="18" font-weight="900" fill="#FFFFFF">LOJA <tspan fill="#38BDF8">STORE</tspan></text>
+    
+    <!-- Search Bar -->
+    <rect x="160" y="2" width="340" height="34" rx="8" fill="#0F172A" stroke="#334155" />
+    <text x="175" y="24" font-family="system-ui, sans-serif" font-size="11.5" fill="#64748B">🔍 O que você procura hoje?</text>
+
+    <!-- Cart & User -->
+    <rect x="525" y="2" width="105" height="34" rx="8" fill="#1E293B" stroke="#334155" />
+    <text x="540" y="23" font-family="system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#E2E8F0">🛒 Carrinho (3)</text>
+    <circle cx="618" cy="12" r="6" fill="#10B981" />
+
+    <rect x="645" y="2" width="95" height="34" rx="8" fill="url(#ecGrad)" />
+    <text x="660" y="23" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">Checkout</text>
+  </g>
+
+  <!-- Banner Strip -->
+  <g transform="translate(30, 116)">
+    <rect x="0" y="0" width="740" height="42" rx="10" fill="linear-gradient(90deg, #0284C7, #4F46E5)" />
+    <text x="24" y="26" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">⚡ COMPRE COM PIX INSTANTÂNEO • FRETE GRÁTIS EM COMPRAS ACIMA DE R$ 199 • SUPORTE WHATSAPP</text>
+  </g>
+
+  <!-- Products Row (3 Cards) -->
+  <g transform="translate(30, 178)">
+    
+    <!-- Product 1 -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="230" height="295" rx="12" fill="url(#cardGrad)" stroke="#334155" />
+      <!-- Product Image Area -->
+      <rect x="12" y="12" width="206" height="135" rx="8" fill="#0F172A" stroke="#1F2937" />
+      <circle cx="115" cy="80" r="32" fill="#38BDF8" fill-opacity="0.15" />
+      <text x="100" y="88" font-family="system-ui, sans-serif" font-size="28">🎧</text>
+      <rect x="18" y="18" width="55" height="20" rx="4" fill="#EF4444" />
+      <text x="24" y="32" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">-25% OFF</text>
+
+      <text x="14" y="172" font-family="system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#FFFFFF">Headset Wireless Pro</text>
+      <text x="14" y="188" font-family="system-ui, sans-serif" font-size="10.5" fill="#94A3B8">Áudio espacial &amp; cancelamento ruído</text>
+      
+      <text x="14" y="214" font-family="system-ui, sans-serif" font-size="10.5" text-decoration="line-through" fill="#64748B">R$ 389,90</text>
+      <text x="14" y="238" font-family="system-ui, sans-serif" font-size="18" font-weight="800" fill="#34D399">R$ 289,90</text>
+      <text x="100" y="235" font-family="system-ui, sans-serif" font-size="10" fill="#38BDF8">no PIX</text>
+
+      <rect x="14" y="250" width="202" height="32" rx="6" fill="#0284C7" />
+      <text x="64" y="271" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF">Comprar Agora</text>
+    </g>
+
+    <!-- Product 2 -->
+    <g transform="translate(255, 0)">
+      <rect x="0" y="0" width="230" height="295" rx="12" fill="url(#cardGrad)" stroke="#38BDF8" stroke-width="1.5" />
+      <!-- Product Image Area -->
+      <rect x="12" y="12" width="206" height="135" rx="8" fill="#0F172A" stroke="#1F2937" />
+      <circle cx="115" cy="80" r="32" fill="#10B981" fill-opacity="0.15" />
+      <text x="100" y="88" font-family="system-ui, sans-serif" font-size="28">⌚</text>
+      <rect x="18" y="18" width="80" height="20" rx="4" fill="#10B981" />
+      <text x="24" y="32" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">MAIS VENDIDO</text>
+
+      <text x="14" y="172" font-family="system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#FFFFFF">Smartwatch Ultra V2</text>
+      <text x="14" y="188" font-family="system-ui, sans-serif" font-size="10.5" fill="#94A3B8">Sensor cardíaco &amp; GPS integrado</text>
+      
+      <text x="14" y="214" font-family="system-ui, sans-serif" font-size="10.5" text-decoration="line-through" fill="#64748B">R$ 499,00</text>
+      <text x="14" y="238" font-family="system-ui, sans-serif" font-size="18" font-weight="800" fill="#34D399">R$ 399,00</text>
+      <text x="100" y="235" font-family="system-ui, sans-serif" font-size="10" fill="#38BDF8">no PIX</text>
+
+      <rect x="14" y="250" width="202" height="32" rx="6" fill="#10B981" />
+      <text x="64" y="271" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#0F172A">Comprar Agora</text>
+    </g>
+
+    <!-- Product 3 -->
+    <g transform="translate(510, 0)">
+      <rect x="0" y="0" width="230" height="295" rx="12" fill="url(#cardGrad)" stroke="#334155" />
+      <!-- Product Image Area -->
+      <rect x="12" y="12" width="206" height="135" rx="8" fill="#0F172A" stroke="#1F2937" />
+      <circle cx="115" cy="80" r="32" fill="#A855F7" fill-opacity="0.15" />
+      <text x="100" y="88" font-family="system-ui, sans-serif" font-size="28">⌨️</text>
+      <rect x="18" y="18" width="62" height="20" rx="4" fill="#7C3AED" />
+      <text x="24" y="32" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">NOVIDADE</text>
+
+      <text x="14" y="172" font-family="system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#FFFFFF">Teclado Mecânico RGB</text>
+      <text x="14" y="188" font-family="system-ui, sans-serif" font-size="10.5" fill="#94A3B8">Switches mecânicos silenciosos</text>
+      
+      <text x="14" y="214" font-family="system-ui, sans-serif" font-size="10.5" text-decoration="line-through" fill="#64748B">R$ 349,00</text>
+      <text x="14" y="238" font-family="system-ui, sans-serif" font-size="18" font-weight="800" fill="#34D399">R$ 249,00</text>
+      <text x="100" y="235" font-family="system-ui, sans-serif" font-size="10" fill="#38BDF8">no PIX</text>
+
+      <rect x="14" y="250" width="202" height="32" rx="6" fill="#0284C7" />
+      <text x="64" y="271" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF">Comprar Agora</text>
+    </g>
+
+  </g>
+</svg>
