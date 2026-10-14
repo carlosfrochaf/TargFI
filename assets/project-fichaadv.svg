@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="faBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="faAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#6366F1" />
+    </linearGradient>
+    <filter id="shadow1" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="800" height="500" rx="16" fill="url(#faBg)" />
+  <rect x="1" y="1" width="798" height="498" rx="15" stroke="#334155" stroke-width="1.5" />
+
+  <!-- Top Window Header -->
+  <rect x="0" y="0" width="800" height="48" rx="16" fill="#1E293B" />
+  <circle cx="28" cy="24" r="6" fill="#EF4444" />
+  <circle cx="48" cy="24" r="6" fill="#F59E0B" />
+  <circle cx="68" cy="24" r="6" fill="#10B981" />
+  
+  <text x="100" y="29" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#94A3B8">FichaAdv — Sistema de Gestão Jurídica &amp; Fichas de Atendimento</text>
+  <rect x="640" y="14" width="130" height="22" rx="11" fill="#0284C7" fill-opacity="0.2" />
+  <text x="662" y="29" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#38BDF8">● Online / Ativo</text>
+
+  <!-- Sidebar -->
+  <rect x="0" y="48" width="180" height="452" fill="#0B132B" opacity="0.6" />
+  <line x1="180" y1="48" x2="180" y2="500" stroke="#334155" stroke-width="1" />
+  
+  <!-- Sidebar items -->
+  <rect x="14" y="70" width="152" height="34" rx="8" fill="url(#faAccent)" opacity="0.25" />
+  <rect x="14" y="70" width="3" height="34" rx="1.5" fill="#38BDF8" />
+  <text x="32" y="92" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#F8FAFC">Clientes &amp; Fichas</text>
+
+  <text x="32" y="132" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#64748B">Processos TRT3</text>
+  <text x="32" y="172" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#64748B">Documentos &amp; Docs</text>
+  <text x="32" y="212" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#64748B">Modelos de Petição</text>
+  <text x="32" y="252" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#64748B">Relatórios</text>
+
+  <!-- Main Content Area -->
+  <!-- Stats row -->
+  <g transform="translate(205, 68)">
+    <!-- Stat 1 -->
+    <rect x="0" y="0" width="175" height="74" rx="10" fill="#1E293B" stroke="#334155" />
+    <text x="14" y="24" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#94A3B8">Total de Clientes</text>
+    <text x="14" y="54" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">1.482</text>
+    <rect x="120" y="14" width="42" height="18" rx="9" fill="#10B981" fill-opacity="0.2" />
+    <text x="128" y="27" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#34D399">+18%</text>
+
+    <!-- Stat 2 -->
+    <rect x="195" y="0" width="175" height="74" rx="10" fill="#1E293B" stroke="#334155" />
+    <text x="209" y="24" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#94A3B8">Fichas Finalizadas</text>
+    <text x="209" y="54" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#38BDF8">894</text>
+
+    <!-- Stat 3 -->
+    <rect x="390" y="0" width="175" height="74" rx="10" fill="#1E293B" stroke="#334155" />
+    <text x="404" y="24" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#94A3B8">Documentos Gerados</text>
+    <text x="404" y="54" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#A855F7">3.240</text>
+  </g>
+
+  <!-- Table View Mockup -->
+  <g transform="translate(205, 160)">
+    <rect x="0" y="0" width="565" height="315" rx="12" fill="#1E293B" stroke="#334155" />
+    
+    <!-- Table Header Toolbar -->
+    <rect x="16" y="14" width="220" height="32" rx="6" fill="#0F172A" stroke="#334155" />
+    <text x="32" y="35" font-family="system-ui, sans-serif" font-size="12" fill="#64748B">🔍 Buscar cliente por CPF, nome...</text>
+
+    <rect x="445" y="14" width="105" height="32" rx="6" fill="url(#faAccent)" />
+    <text x="460" y="34" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">+ Nova Ficha</text>
+
+    <!-- Table Columns -->
+    <line x1="0" y1="58" x2="565" y2="58" stroke="#334155" />
+    <text x="20" y="78" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#94A3B8">NOME DO CLIENTE</text>
+    <text x="190" y="78" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#94A3B8">PROCESSO</text>
+    <text x="340" y="78" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#94A3B8">STATUS</text>
+    <text x="460" y="78" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#94A3B8">AÇÃO</text>
+
+    <!-- Row 1 -->
+    <line x1="0" y1="96" x2="565" y2="96" stroke="#334155" opacity="0.6" />
+    <text x="20" y="122" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#F8FAFC">Carlos Rocha &amp; Associados</text>
+    <text x="190" y="122" font-family="system-ui, sans-serif" font-size="12" fill="#CBD5E1">0011017-14.2025.5.03</text>
+    <rect x="336" y="108" width="92" height="22" rx="6" fill="#10B981" fill-opacity="0.15" />
+    <text x="346" y="123" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#34D399">Concluído</text>
+    <rect x="460" y="108" width="80" height="22" rx="6" fill="#38BDF8" fill-opacity="0.2" />
+    <text x="474" y="123" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#38BDF8">Ver Ficha</text>
+
+    <!-- Row 2 -->
+    <line x1="0" y1="146" x2="565" y2="146" stroke="#334155" opacity="0.6" />
+    <text x="20" y="172" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#F8FAFC">Érica Cristina Silva</text>
+    <text x="190" y="172" font-family="system-ui, sans-serif" font-size="12" fill="#CBD5E1">0010452-88.2025.5.03</text>
+    <rect x="336" y="158" width="92" height="22" rx="6" fill="#F59E0B" fill-opacity="0.15" />
+    <text x="348" y="173" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#FBBF24">Em Análise</text>
+    <rect x="460" y="158" width="80" height="22" rx="6" fill="#38BDF8" fill-opacity="0.2" />
+    <text x="474" y="173" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#38BDF8">Ver Ficha</text>
+
+    <!-- Row 3 -->
+    <line x1="0" y1="196" x2="565" y2="196" stroke="#334155" opacity="0.6" />
+    <text x="20" y="222" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#F8FAFC">Top Service Soluções Ltda</text>
+    <text x="190" y="222" font-family="system-ui, sans-serif" font-size="12" fill="#CBD5E1">0011890-42.2026.5.03</text>
+    <rect x="336" y="208" width="92" height="22" rx="6" fill="#6366F1" fill-opacity="0.2" />
+    <text x="350" y="223" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#818CF8">Audiência</text>
+    <rect x="460" y="208" width="80" height="22" rx="6" fill="#38BDF8" fill-opacity="0.2" />
+    <text x="474" y="223" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#38BDF8">Ver Ficha</text>
+
+    <!-- Row 4 -->
+    <line x1="0" y1="246" x2="565" y2="246" stroke="#334155" opacity="0.6" />
+    <text x="20" y="272" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#F8FAFC">André Ferreira Bastos</text>
+    <text x="190" y="272" font-family="system-ui, sans-serif" font-size="12" fill="#CBD5E1">0009841-12.2026.5.03</text>
+    <rect x="336" y="258" width="92" height="22" rx="6" fill="#10B981" fill-opacity="0.15" />
+    <text x="346" y="273" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#34D399">Concluído</text>
+    <rect x="460" y="258" width="80" height="22" rx="6" fill="#38BDF8" fill-opacity="0.2" />
+    <text x="474" y="273" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#38BDF8">Ver Ficha</text>
+  </g>
+</svg>

@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TARGFI — Dashboards, Aplicações Sob Medida, Automações & Landing Pages</title>
+  <meta name="description" content="A TARGFI desenvolve sistemas sob medida: dashboards interativos, aplicações simples para gestão, robôs de automação inteligente e sites de alta conversão.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#F0F9FF',
+              100: '#E0F2FE',
+              400: '#38BDF8',
+              500: '#0EA5E9',
+              600: '#0284C7',
+              700: '#0369A1',
+            },
+            darkBg: '#080C14',
+            darkCard: '#0F172A',
+            darkBorder: '#1E293B',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Chart.js for Live Dashboard Demo -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-darkBg text-slate-100 antialiased overflow-x-hidden selection:bg-sky-500 selection:text-white">
+
+  <!-- Floating WhatsApp Action -->
+  <a href="javascript:void(0)" onclick="openWhatsApp('Olá TARGFI! Gostaria de conversar sobre um projeto de sistema sob medida para minha empresa.')" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:scale-110 group" title="Falar no WhatsApp">
+    <i class="fa-brands fa-whatsapp text-2xl"></i>
+    <span class="absolute right-16 bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
+      Conversar no WhatsApp
+    </span>
+    <span class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-400 rounded-full animate-ping"></span>
+  </a>
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-sky-900/60 via-indigo-900/60 to-purple-900/60 border-b border-sky-500/20 py-2 px-4 text-center text-xs font-medium text-slate-300">
+    <span class="inline-flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span><strong>TARGFI Tecnologia:</strong> Soluções que eliminam retrabalho e transformam ideias em sistemas que faturam.</span>
+      <a href="#simulador" class="text-sky-400 hover:text-sky-300 underline font-semibold ml-1">Simular orçamento &rarr;</a>
+    </span>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header id="navbar" class="sticky top-0 z-40 transition-all duration-300 bg-darkBg/80 backdrop-blur-md border-b border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="assets/logo.svg" alt="TARGFI Sistemas" class="h-10 w-auto transition-transform group-hover:scale-105">
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#solucoes" class="hover:text-sky-400 transition-colors">Soluções</a>
+        <a href="#live-demo" class="hover:text-sky-400 transition-colors flex items-center gap-1.5">
+          <span>Live Demo</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-bold uppercase rounded bg-sky-500/20 text-sky-400 border border-sky-500/30">Interativo</span>
+        </a>
+        <a href="#portfolio" class="hover:text-sky-400 transition-colors">Portfólio Real</a>
+        <a href="#simulador" class="hover:text-sky-400 transition-colors">Simulador</a>
+        <a href="#metodo" class="hover:text-sky-400 transition-colors">Como Trabalhamos</a>
+        <a href="#faq" class="hover:text-sky-400 transition-colors">FAQ</a>
+      </nav>
+
+      <!-- CTA Action Button -->
+      <div class="hidden lg:flex items-center gap-4">
+        <button onclick="openWhatsApp('Olá TARGFI! Quero solicitar um diagnóstico gratuito para a minha empresa.')" class="glow-btn px-5 py-2.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white shadow-lg shadow-sky-500/25 flex items-center gap-2">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span>Falar com Especialista</span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 px-6 py-5 space-y-4">
+      <a href="#solucoes" class="block text-slate-200 hover:text-sky-400 py-1">Soluções</a>
+      <a href="#live-demo" class="block text-slate-200 hover:text-sky-400 py-1">Live Demo Interativo</a>
+      <a href="#portfolio" class="block text-slate-200 hover:text-sky-400 py-1">Portfólio Real</a>
+      <a href="#simulador" class="block text-slate-200 hover:text-sky-400 py-1">Simulador de Investimento</a>
+      <a href="#metodo" class="block text-slate-200 hover:text-sky-400 py-1">Como Trabalhamos</a>
+      <a href="#faq" class="block text-slate-200 hover:text-sky-400 py-1">Dúvidas Frequentes</a>
+      <button onclick="openWhatsApp('Olá TARGFI! Quero solicitar um diagnóstico gratuito para a minha empresa.')" class="w-full mt-2 py-3 rounded-xl font-semibold text-sm bg-sky-500 text-white flex items-center justify-center gap-2">
+        <i class="fa-brands fa-whatsapp text-lg"></i>
+        <span>Solicitar Diagnóstico Grátis</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden bg-radial-glow bg-grid-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Headline & Subtitle -->
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/70 text-slate-300 text-xs font-semibold mb-6 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+          <span>Software Sob Medida • Automação Inteligente • Alta Performance</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
+          Chega de planilhas confusas. Tenha <span class="text-gradient">sistemas e dashboards</span> feitos para a sua rotina.
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10">
+          Na <strong>TARGFI</strong>, desenvolvemos soluções digitais sob medida: dashboards em tempo real, aplicações simples de gestão, robôs de automação de processos e landing pages de alta conversão. Sem complexidade desnecessária e com entrega ágil.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#simulador" class="glow-btn w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-base bg-gradient-to-r from-sky-500 via-indigo-600 to-purple-600 hover:from-sky-400 hover:to-indigo-500 text-white shadow-xl shadow-sky-500/20 flex items-center justify-center gap-2.5">
+            <i class="fa-solid fa-calculator"></i>
+            <span>Simular Meu Projeto Agora</span>
+          </a>
+
+          <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-base bg-slate-800/80 hover:bg-slate-700/80 text-slate-200 border border-slate-700 transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-layer-group text-sky-400"></i>
+            <span>Ver Casos de Sucesso</span>
+          </a>
+        </div>
+
+        <!-- Social Proof Stats Mini Strip -->
+        <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-slate-800/80">
+          <div class="p-3">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white">+40%</div>
+            <div class="text-xs text-slate-400 font-medium mt-1">Horas poupadas por semana</div>
+          </div>
+          <div class="p-3">
+            <div class="text-2xl sm:text-3xl font-extrabold text-sky-400">100%</div>
+            <div class="text-xs text-slate-400 font-medium mt-1">Sob medida p/ sua empresa</div>
+          </div>
+          <div class="p-3">
+            <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400">0</div>
+            <div class="text-xs text-slate-400 font-medium mt-1">Mensalidades abusivas</div>
+          </div>
+          <div class="p-3">
+            <div class="text-2xl sm:text-3xl font-extrabold text-purple-400">24/7</div>
+            <div class="text-xs text-slate-400 font-medium mt-1">Automações operando</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual / Floating Mockup -->
+      <div class="mt-14 relative max-w-5xl mx-auto">
+        <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-sky-500/30 via-indigo-500/20 to-purple-500/30 blur-xl opacity-60"></div>
+        <div class="relative rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl">
+          
+          <!-- Mockup Window Header -->
+          <div class="h-10 bg-slate-800/90 px-4 flex items-center justify-between border-b border-slate-700/60">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+              <span class="text-xs font-mono text-slate-400 ml-2">targfi.com.br — Plataforma Integrada de Gestão &amp; Automação</span>
+            </div>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+              Sistemas Online
+            </span>
+          </div>
+
+          <!-- Mockup Preview Body -->
+          <div class="p-4 sm:p-6 bg-slate-950">
+            <img src="assets/project-dashboard.svg" alt="TARGFI Dashboard Preview" class="w-full h-auto rounded-lg shadow-inner">
+          </div>
+        </div>
+
+        <!-- Floating Badge 1 (Left) -->
+        <div class="hidden lg:flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-900/95 border border-slate-700 shadow-2xl absolute -bottom-6 -left-8 animate-float">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-lg">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-white">Bot DJE &amp; TRT-3 Ativo</div>
+            <div class="text-[11px] text-slate-400">14 publicações lidas e notificadas hoje</div>
+          </div>
+        </div>
+
+        <!-- Floating Badge 2 (Right) -->
+        <div class="hidden lg:flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-900/95 border border-slate-700 shadow-2xl absolute -top-6 -right-8 animate-float" style="animation-delay: -2s;">
+          <div class="w-10 h-10 rounded-lg bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 text-lg">
+            <i class="fa-solid fa-file-signature"></i>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-white">FichaAdv Integrada</div>
+            <div class="text-[11px] text-slate-400">1.482 fichas cadastradas com 1 clique</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Solutions & Services Section -->
+  <section id="solucoes" class="py-20 md:py-28 bg-slate-950 border-t border-slate-800/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-sky-500/10 text-sky-400 border border-sky-500/20">
+          Nossas Especialidades
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-4">
+          Soluções digitais que resolvem o seu problema real.
+        </h2>
+        <p class="text-slate-400 text-base leading-relaxed">
+          Sem ferramentas genéricas que cobram fortunas para você usar 10% das funções. Desenvolvemos o que a sua empresa realmente precisa para rodar no automático.
+        </p>
+      </div>
+
+      <!-- 4 Pillars Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Service 1: Dashboards -->
+        <div class="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-xl mb-5">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Dashboards &amp; Painéis BI</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              Visualização de faturamento, metas, atendimentos e gargalos operacionais em tempo real com gráficos intuitivos e filtros inteligentes.
+            </p>
+            <ul class="text-xs text-slate-300 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Integração com planilhas e bancos</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Exportação em PDF e Excel</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Acesso seguro em qualquer dispositivo</li>
+            </ul>
+          </div>
+          <a href="#live-demo" class="text-xs font-bold text-sky-400 hover:text-sky-300 inline-flex items-center gap-1.5 pt-4 border-t border-slate-800">
+            <span>Ver demonstração interativa</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Service 2: Simple Web Apps -->
+        <div class="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-xl mb-5">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Aplicações Sob Medida</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              Sistemas sob medida e diretos ao ponto (como o nosso <em>FichaAdv</em> e <em>Agenda Aí</em>): cadastros de clientes, geração de fichas e rotinas operacionais sem burocracia.
+            </p>
+            <ul class="text-xs text-slate-300 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Interface limpa e fácil de aprender</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Redução de retrabalho manual</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Sem custos de licença por usuário</li>
+            </ul>
+          </div>
+          <a href="#portfolio" class="text-xs font-bold text-indigo-400 hover:text-indigo-300 inline-flex items-center gap-1.5 pt-4 border-t border-slate-800">
+            <span>Ver projetos em operação</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Service 3: Sites & Landing Pages -->
+        <div class="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl mb-5">
+              <i class="fa-solid fa-globe"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Sites &amp; Landing Pages</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              Websites institucionais e páginas de venda construídas com design moderno, carregamento ultrarrápido e estrutura focada em gerar orçamentos no WhatsApp.
+            </p>
+            <ul class="text-xs text-slate-300 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Design responsivo e exclusivo</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Carregamento em menos de 1 segundo</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Copywriting de alta conversão</li>
+            </ul>
+          </div>
+          <a href="#portfolio" class="text-xs font-bold text-purple-400 hover:text-purple-300 inline-flex items-center gap-1.5 pt-4 border-t border-slate-800">
+            <span>Ver cases de landing pages</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Service 4: Automation & Bots -->
+        <div class="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl mb-5">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Automação &amp; Robôs (RPA)</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              Robôs que fazem o trabalho repetitivo por você: leitura de diários da justiça (DJE/TRT3), coleta de dados em sites, extração de PDFs e avisos automáticos no Telegram/WhatsApp.
+            </p>
+            <ul class="text-xs text-slate-300 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Monitoramento automático 24/7</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Notificações em tempo real</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Risco zero de esquecer prazos</li>
+            </ul>
+          </div>
+          <a href="#portfolio" class="text-xs font-bold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5 pt-4 border-t border-slate-800">
+            <span>Conhecer o Robô DJE/TRT-3</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Live Dashboard Demo Section -->
+  <section id="live-demo" class="py-20 md:py-28 bg-slate-900/60 border-t border-slate-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          Experiência Interativa
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-3">
+          Teste um Dashboard TARGFI em tempo real.
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          Clique nos filtros e períodos abaixo para ver como os dados operacionais da sua empresa podem ser transformados em inteligência visual e prática.
+        </p>
+      </div>
+
+      <!-- Live Dashboard Container -->
+      <div class="glass-panel rounded-2xl p-6 sm:p-8 max-w-5xl mx-auto shadow-2xl border border-slate-700/80">
+        
+        <!-- Dashboard Toolbar Controls -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 pb-6 border-b border-slate-800">
+          
+          <!-- Category Presets -->
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-2 hidden sm:inline">Visão:</span>
+            
+            <button class="chart-preset-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/20 text-sky-300 border border-sky-500/40 transition" data-preset="vendas">
+              <i class="fa-solid fa-chart-line mr-1.5"></i> Comercial &amp; Vendas
+            </button>
+
+            <button class="chart-preset-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800/60 text-slate-400 border border-slate-700/50 hover:text-white transition" data-preset="operacional">
+              <i class="fa-solid fa-gears mr-1.5"></i> Operacional &amp; Rotina
+            </button>
+
+            <button class="chart-preset-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800/60 text-slate-400 border border-slate-700/50 hover:text-white transition" data-preset="juridico">
+              <i class="fa-solid fa-scale-balanced mr-1.5"></i> Jurídico &amp; Processos
+            </button>
+          </div>
+
+          <!-- Time Period Filters -->
+          <div class="flex items-center p-1 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+            <button class="chart-period-btn px-3 py-1 rounded-md font-medium text-slate-400 hover:text-white transition" data-period="hoje">Hoje</button>
+            <button class="chart-period-btn px-3 py-1 rounded-md font-medium bg-sky-600 text-white transition" data-period="semana">7 Dias</button>
+            <button class="chart-period-btn px-3 py-1 rounded-md font-medium text-slate-400 hover:text-white transition" data-period="mes">30 Dias</button>
+          </div>
+
+        </div>
+
+        <!-- Live Metrics Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80">
+            <div class="text-xs text-slate-400 font-medium mb-1">Volume Consolidado</div>
+            <div id="chartStat1" class="text-2xl font-black text-white">R$ 178.000</div>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80">
+            <div class="text-xs text-slate-400 font-medium mb-1">Entregas / Conversões</div>
+            <div id="chartStat2" class="text-2xl font-black text-sky-400">62 Contratos</div>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80">
+            <div class="text-xs text-slate-400 font-medium mb-1">Indicador de Eficiência</div>
+            <div id="chartStat3" class="text-2xl font-black text-emerald-400">+28% vs sem. ant.</div>
+          </div>
+        </div>
+
+        <!-- Canvas Chart -->
+        <div class="relative w-full h-[320px] sm:h-[380px] mt-4">
+          <canvas id="liveDemoChart"></canvas>
+        </div>
+
+        <!-- Bottom helper & CTA -->
+        <div class="mt-6 pt-5 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>Simulação interativa gerada pelo motor de DataViz da TARGFI.</span>
+          </div>
+          <button onclick="openWhatsApp('Olá TARGFI! Testei a Live Demo de Dashboard no site e quero um painel parecido para acompanhar os dados da minha empresa.')" class="px-4 py-2 rounded-lg bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 border border-sky-500/30 font-semibold transition flex items-center gap-2">
+            <i class="fa-solid fa-chart-simple"></i>
+            <span>Quero um Dashboard Assim</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Real Portfolio & Success Cases Section -->
+  <section id="portfolio" class="py-20 md:py-28 bg-slate-950 border-t border-slate-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+          Portfólio Comprovado
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-3">
+          Projetos reais construídos e em operação.
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          Conheça os sistemas, automações e páginas desenvolvidas pela TARGFI para resolver problemas de rotina de clientes reais.
+        </p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 mb-12">
+        <button class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-slate-800 transition" data-filter="all">
+          Todos os Projetos
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 transition" data-filter="app">
+          Aplicações &amp; Gestão
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 transition" data-filter="bot">
+          Automações &amp; Bots (RPA)
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 transition" data-filter="landing">
+          Sites &amp; Landing Pages
+        </button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Project 1: FichaAdv -->
+        <div class="portfolio-card glass-panel glass-panel-hover rounded-2xl overflow-hidden flex flex-col justify-between" data-category="app">
+          <div>
+            <div class="relative bg-slate-900 p-2 border-b border-slate-800">
+              <img src="assets/project-fichaadv.svg" alt="FichaAdv Gestão Jurídica" class="w-full h-48 object-cover rounded-xl">
+              <span class="absolute top-4 right-4 px-2.5 py-1 rounded-md text-[10px] font-bold bg-sky-500/90 text-white shadow">
+                Case Jurídico
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20">Aplicação Web</span>
+                <span class="text-xs text-slate-400">• Gestão de Fichas</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">FichaAdv — Gestão Jurídica</h3>
+              <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                Sistema web completo para escritórios de advocacia: cadastramento ágil de clientes, controle de fichas de atendimento, histórico de processos e geração instantânea de documentos.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">TRT-3 Integrado</span>
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">Fichas em PDF</span>
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">Busca Rápida</span>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0">
+            <button data-project-trigger="fichaadv" class="w-full py-2.5 rounded-xl font-semibold text-xs bg-slate-800 hover:bg-sky-600 text-white transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-eye"></i>
+              <span>Ver Detalhes do Projeto</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 2: Bot DJE / TRT3 -->
+        <div class="portfolio-card glass-panel glass-panel-hover rounded-2xl overflow-hidden flex flex-col justify-between" data-category="bot">
+          <div>
+            <div class="relative bg-slate-900 p-2 border-b border-slate-800">
+              <img src="assets/project-botdje.svg" alt="Robô DJE TRT3 Telegram" class="w-full h-48 object-cover rounded-xl">
+              <span class="absolute top-4 right-4 px-2.5 py-1 rounded-md text-[10px] font-bold bg-emerald-500/90 text-white shadow">
+                Robô Autônomo
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Automação (RPA)</span>
+                <span class="text-xs text-slate-400">• Python &amp; Telegram</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Robô Monitor DJE &amp; TRT-3</h3>
+              <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                Automação em Python que monitora diários oficiais e andamentos judiciais todas as manhãs, identifica movimentações de clientes e despacha alertas ricos e imediatos no Telegram.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">Alerta Telegram</span>
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">Download Automático</span>
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">Risco Zero de Prazo</span>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0">
+            <button data-project-trigger="botdje" class="w-full py-2.5 rounded-xl font-semibold text-xs bg-slate-800 hover:bg-emerald-600 text-white transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-eye"></i>
+              <span>Ver Detalhes do Projeto</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 3: Agenda Aí -->
+        <div class="portfolio-card glass-panel glass-panel-hover rounded-2xl overflow-hidden flex flex-col justify-between" data-category="app">
+          <div>
+            <div class="relative bg-slate-900 p-2 border-b border-slate-800">
+              <img src="assets/project-agendai.svg" alt="Agenda Aí Agendamento Online" class="w-full h-48 object-cover rounded-xl">
+              <span class="absolute top-4 right-4 px-2.5 py-1 rounded-md text-[10px] font-bold bg-purple-500/90 text-white shadow">
+                Produtividade
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">Aplicação Web</span>
+                <span class="text-xs text-slate-400">• Agendamento Inteligente</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Agenda Aí — Gestão de Horários</h3>
+              <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                Plataforma de agendamento online com confirmação instantânea, visão em grade semanal e disparos de lembretes automáticos para diminuir faltas de clientes e reuniões.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">Reserva 24/7</span>
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">Grade Visual</span>
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">Redução de No-Shows</span>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0">
+            <button data-project-trigger="agendai" class="w-full py-2.5 rounded-xl font-semibold text-xs bg-slate-800 hover:bg-purple-600 text-white transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-eye"></i>
+              <span>Ver Detalhes do Projeto</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 4: Landing Page Fênix Contábil -->
+        <div class="portfolio-card glass-panel glass-panel-hover rounded-2xl overflow-hidden flex flex-col justify-between" data-category="landing">
+          <div>
+            <div class="relative bg-slate-900 p-2 border-b border-slate-800">
+              <img src="assets/project-fenix.svg" alt="Fênix Contábil Landing Page" class="w-full h-48 object-cover rounded-xl">
+              <span class="absolute top-4 right-4 px-2.5 py-1 rounded-md text-[10px] font-bold bg-amber-500/90 text-white shadow">
+                Alta Conversão
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">Site &amp; Landing Page</span>
+                <span class="text-xs text-slate-400">• Institucional &amp; Captação</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Landing Page Fênix Contábil</h3>
+              <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                Página moderna de alta performance com design corporativo, carregamento instantâneo e copy estratégica pensada para transformar visitantes em novos clientes pelo WhatsApp.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">99/100 Velocidade</span>
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">WhatsApp Direct</span>
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">Design Dark/Glass</span>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0">
+            <button data-project-trigger="fenix" class="w-full py-2.5 rounded-xl font-semibold text-xs bg-slate-800 hover:bg-amber-600 text-white transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-eye"></i>
+              <span>Ver Detalhes do Projeto</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 5: TARGFI BI & Analytics -->
+        <div class="portfolio-card glass-panel glass-panel-hover rounded-2xl overflow-hidden flex flex-col justify-between" data-category="app">
+          <div>
+            <div class="relative bg-slate-900 p-2 border-b border-slate-800">
+              <img src="assets/project-dashboard.svg" alt="TARGFI Analytics Dashboard" class="w-full h-48 object-cover rounded-xl">
+              <span class="absolute top-4 right-4 px-2.5 py-1 rounded-md text-[10px] font-bold bg-sky-500/90 text-white shadow">
+                Gestão com Dados
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20">Dashboards</span>
+                <span class="text-xs text-slate-400">• Business Intelligence</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Painéis Executivos TARGFI</h3>
+              <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                Painéis de controle interativos que conectam dados financeiros, operacionais e de vendas, proporcionando clareza total aos diretores e líderes de equipes.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">Indicadores em Tempo Real</span>
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">Gráficos Interativos</span>
+                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300">Filtros Avançados</span>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0">
+            <button data-project-trigger="dashboard" class="w-full py-2.5 rounded-xl font-semibold text-xs bg-slate-800 hover:bg-sky-600 text-white transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-eye"></i>
+              <span>Ver Detalhes do Projeto</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Custom Request Card -->
+        <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between border-dashed border-2 border-slate-700/80 bg-gradient-to-b from-slate-900/40 to-slate-950/90">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-sky-500/20 border border-sky-500/40 flex items-center justify-center text-sky-400 text-xl mb-4">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Sua Ideia ou Desafio Aqui</h3>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+              Tem uma rotina na sua empresa que toma tempo demais da sua equipe? Uma planilha que quebrou? Ou precisa de um sistema próprio para vender mais?
+            </p>
+            <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300 space-y-1.5 mb-6">
+              <div>💡 <strong>100% Personalizado:</strong> Estudamos o seu fluxo.</div>
+              <div>⚡ <strong>Entrega Rápida:</strong> Sem burocracias de agência.</div>
+            </div>
+          </div>
+          <button onclick="openWhatsApp('Olá TARGFI! Tenho um projeto novo e gostaria de apresentar a minha ideia para vocês desenvolverem.')" class="w-full py-3 rounded-xl font-bold text-xs bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white shadow-lg shadow-sky-500/20 transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-sm"></i>
+            <span>Apresentar Meu Projeto</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Budget Simulator Section -->
+  <section id="simulador" class="py-20 md:py-28 bg-slate-900/50 border-t border-slate-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          Transparência Total
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-3">
+          Simulador de Orçamento &amp; Prazo
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          Selecione o que a sua empresa precisa e tenha uma estimativa prévia instantânea. Sem compromisso e direto ao ponto!
+        </p>
+      </div>
+
+      <!-- Simulator Card -->
+      <div class="glass-panel rounded-3xl p-6 sm:p-10 max-w-4xl mx-auto border border-slate-700/80 shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Left Controls -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Project Type -->
+            <div>
+              <label for="simProjectType" class="block text-xs font-bold uppercase text-slate-300 tracking-wider mb-2">
+                1. Qual tipo de solução você precisa?
+              </label>
+              <select id="simProjectType" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 text-sm focus:outline-none focus:border-sky-500 transition">
+                <option value="dashboard">Dashboard / Painel de Indicadores (BI)</option>
+                <option value="app" selected>Aplicação Web / Sistema de Gestão Sob Medida</option>
+                <option value="landing">Site Institucional / Landing Page de Conversão</option>
+                <option value="bot">Robô de Automação / Bot de Notificações (RPA)</option>
+                <option value="completo">Pacote Completo (Site + Sistema + Automação)</option>
+              </select>
+            </div>
+
+            <!-- Features Checkboxes -->
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-300 tracking-wider mb-2">
+                2. Quais recursos extras são necessários?
+              </label>
+              <div class="space-y-2.5">
+                <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-950/60 border border-slate-800 hover:border-slate-700 cursor-pointer text-xs sm:text-sm text-slate-200 transition">
+                  <input type="checkbox" class="sim-feature-check rounded border-slate-700 text-sky-500 focus:ring-0 w-4 h-4" data-cost-min="300" data-cost-max="600" data-label="Banco de dados dedicado">
+                  <span>Banco de Dados em Nuvem Seguro (PostgreSQL / Supabase)</span>
+                </label>
+
+                <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-950/60 border border-slate-800 hover:border-slate-700 cursor-pointer text-xs sm:text-sm text-slate-200 transition">
+                  <input type="checkbox" class="sim-feature-check rounded border-slate-700 text-sky-500 focus:ring-0 w-4 h-4" data-cost-min="350" data-cost-max="650" data-label="Alertas Telegram/WhatsApp" checked>
+                  <span>Integração de Notificações no WhatsApp ou Telegram</span>
+                </label>
+
+                <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-950/60 border border-slate-800 hover:border-slate-700 cursor-pointer text-xs sm:text-sm text-slate-200 transition">
+                  <input type="checkbox" class="sim-feature-check rounded border-slate-700 text-sky-500 focus:ring-0 w-4 h-4" data-cost-min="250" data-cost-max="450" data-label="Exportação PDF e Excel">
+                  <span>Gerador e Exportador de Relatórios / Documentos em PDF &amp; Excel</span>
+                </label>
+
+                <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-950/60 border border-slate-800 hover:border-slate-700 cursor-pointer text-xs sm:text-sm text-slate-200 transition">
+                  <input type="checkbox" class="sim-feature-check rounded border-slate-700 text-sky-500 focus:ring-0 w-4 h-4" data-cost-min="400" data-cost-max="800" data-label="Login com níveis de acesso">
+                  <span>Área Restrita com Login e Níveis de Permissão de Usuários</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Urgency Level -->
+            <div>
+              <label for="simUrgency" class="block text-xs font-bold uppercase text-slate-300 tracking-wider mb-2">
+                3. Prazo desejado de entrega
+              </label>
+              <select id="simUrgency" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 text-sm focus:outline-none focus:border-sky-500 transition">
+                <option value="normal" selected>Cronograma Padrão TARGFI (Ágil e Seguro)</option>
+                <option value="express">Entrega Expressa / Prioritária</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Right Estimate Result Card -->
+          <div class="lg:col-span-5 p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 border border-slate-700/80 shadow-xl flex flex-col justify-between h-full">
+            <div>
+              <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-5">
+                <span class="text-xs uppercase font-bold text-slate-400">Estimativa Prévia</span>
+                <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Sem taxas extras</span>
+              </div>
+
+              <div class="mb-6">
+                <div class="text-xs text-slate-400 mb-1">Faixa de Investimento Estimada:</div>
+                <div id="simPriceDisplay" class="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-300">
+                  R$ 2.550 a R$ 4.850
+                </div>
+                <div class="text-[11px] text-slate-500 mt-1">Valor definitivo alinhado conforme detalhamento do escopo.</div>
+              </div>
+
+              <div class="mb-6 p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+                <div class="text-xs text-slate-400 mb-1 font-medium">Previsão de Entrega:</div>
+                <div id="simTimeDisplay" class="text-base font-bold text-white flex items-center gap-2">
+                  <i class="fa-regular fa-clock text-sky-400"></i>
+                  <span>18 a 23 dias úteis</span>
+                </div>
+              </div>
+
+              <div class="text-xs text-slate-400 space-y-2 mb-6">
+                <div class="flex items-center gap-2"><i class="fa-solid fa-shield text-emerald-400"></i> Código e sistema 100% seus</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-headset text-sky-400"></i> Treinamento e suporte inclusos</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-credit-card text-purple-400"></i> Pagamento facilitado por etapas</div>
+              </div>
+            </div>
+
+            <button id="simSubmitBtn" class="glow-btn w-full py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-2 transition">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>Enviar Simulação no WhatsApp</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Comparison: TARGFI vs Generic Platforms -->
+  <section class="py-20 md:py-28 bg-slate-950 border-t border-slate-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-500/10 text-rose-400 border border-rose-500/20">
+          Por que a TARGFI?
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-3">
+          Sistemas Sob Medida vs. Softwares Prontos de Mercado
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          Descubra por que dezenas de empresas desistem de sistemas prontos engessados e optam por soluções construídas pela TARGFI.
+        </p>
+      </div>
+
+      <!-- Comparison Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        
+        <!-- Generic Software (The Bad) -->
+        <div class="p-8 rounded-2xl bg-slate-900/40 border border-rose-500/20 relative">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400">
+              <i class="fa-solid fa-xmark text-lg"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-white">Sistemas Genéricos de Mercado</h3>
+              <p class="text-xs text-slate-400">Plataformas em massa (SaaS engessado)</p>
+            </div>
+          </div>
+
+          <ul class="space-y-4 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-xmark text-rose-400 text-sm mt-0.5"></i>
+              <span><strong>Mensalidades eternas:</strong> Custa milhares de reais por ano e você nunca é dono de nada.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-xmark text-rose-400 text-sm mt-0.5"></i>
+              <span><strong>80% de botões inúteis:</strong> Interface poluída e cheia de menus que sua equipe não usa.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-xmark text-rose-400 text-sm mt-0.5"></i>
+              <span><strong>Sua empresa tem que se adaptar ao sistema:</strong> Se você precisar de um campo diferente, não tem como mudar.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-xmark text-rose-400 text-sm mt-0.5"></i>
+              <span><strong>Suporte robotizado via chamado:</strong> Você espera dias por uma resposta genérica que não resolve.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- TARGFI (The Good) -->
+        <div class="p-8 rounded-2xl bg-gradient-to-b from-sky-950/40 to-slate-900/90 border border-sky-500/40 relative shadow-2xl">
+          <div class="absolute -top-3 right-6 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-sky-500 to-indigo-600 text-white shadow">
+            Recomendado
+          </div>
+
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-sky-500/20 border border-sky-500/40 flex items-center justify-center text-sky-400">
+              <i class="fa-solid fa-check text-lg"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-white">Soluções TARGFI Sob Medida</h3>
+              <p class="text-xs text-sky-400 font-medium">Feito exatamente para o seu fluxo</p>
+            </div>
+          </div>
+
+          <ul class="space-y-4 text-xs sm:text-sm text-slate-200">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-emerald-400 text-sm mt-0.5"></i>
+              <span><strong>O sistema é seu:</strong> Sem mensalidades abusivas por usuário ou amarras comerciais.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-emerald-400 text-sm mt-0.5"></i>
+              <span><strong>Interface limpa e objetiva:</strong> Apenas o que sua empresa precisa para trabalhar rápido.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-emerald-400 text-sm mt-0.5"></i>
+              <span><strong>O sistema se adapta ao seu processo:</strong> Criamos campos, relatórios e telas sob medida.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-emerald-400 text-sm mt-0.5"></i>
+              <span><strong>Suporte humano e direto no WhatsApp:</strong> Você fala diretamente com quem desenvolveu o seu projeto.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- How We Work (Methodology) -->
+  <section id="metodo" class="py-20 md:py-28 bg-slate-900/40 border-t border-slate-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-purple-500/10 text-purple-400 border border-purple-500/20">
+          Passo a Passo Transparente
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-3">
+          Como funciona o desenvolvimento na TARGFI
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          Sem reuniões intermináveis e sem jargões técnicos complicados. Foco total em entregar valor rápido.
+        </p>
+      </div>
+
+      <!-- 4 Steps Flow -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Step 1 -->
+        <div class="glass-panel p-6 rounded-2xl relative">
+          <div class="text-4xl font-black text-slate-800 mb-3">01</div>
+          <h3 class="text-lg font-bold text-white mb-2">Diagnóstico Rápido</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Entendemos sua dor: quais tarefas tomam tempo, quais dados você quer enxergar ou qual presença digital você quer ter.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="glass-panel p-6 rounded-2xl relative">
+          <div class="text-4xl font-black text-slate-800 mb-3">02</div>
+          <h3 class="text-lg font-bold text-white mb-2">Proposta &amp; Escopo</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Desenhamos a solução ideal com valor fixo e cronograma claro. Você sabe exatamente o que vai receber antes de começar.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="glass-panel p-6 rounded-2xl relative">
+          <div class="text-4xl font-black text-slate-800 mb-3">03</div>
+          <h3 class="text-lg font-bold text-white mb-2">Desenvolvimento Ágil</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Construímos o sistema com validações parciais. Você vê o projeto tomando forma na prática e dá feedbacks em tempo real.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="glass-panel p-6 rounded-2xl relative">
+          <div class="text-4xl font-black text-slate-800 mb-3">04</div>
+          <h3 class="text-lg font-bold text-white mb-2">Entrega &amp; Suporte</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Sistema implantado, sua equipe treinada para utilizar e suporte garantido para ajustes e novas ideias.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 md:py-28 bg-slate-950 border-t border-slate-800 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-16">
+        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-sky-500/10 text-sky-400 border border-sky-500/20">
+          Tire Suas Dúvidas
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-3">
+          Perguntas Frequentes
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          Tudo o que você precisa saber para começar seu projeto com a TARGFI.
+        </p>
+      </div>
+
+      <!-- Accordion -->
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item rounded-2xl bg-slate-900/60 border border-slate-800 overflow-hidden">
+          <button class="faq-question w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-bold text-white hover:text-sky-400 transition">
+            <span>Quanto tempo demora para desenvolver um sistema ou dashboard?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer hidden p-5 pt-0 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/40">
+            Landing pages e sites rápidos costumam ser entregues em 5 a 8 dias úteis. Robôs de automação e dashboards de 8 a 15 dias úteis. Sistemas web mais completos de 15 a 25 dias úteis. Projetos expressos podem ter prazos reduzidos conforme prioridade.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item rounded-2xl bg-slate-900/60 border border-slate-800 overflow-hidden">
+          <button class="faq-question w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-bold text-white hover:text-sky-400 transition">
+            <span>Eu preciso ter conhecimento técnico para usar os sistemas da TARGFI?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer hidden p-5 pt-0 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/40">
+            De forma alguma! Nosso lema é simplificar. Nossos sistemas e dashboards são projetados para qualquer pessoa operar com poucos cliques, sem manuais complexos. Além disso, entregamos treinamento prático para toda a sua equipe.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item rounded-2xl bg-slate-900/60 border border-slate-800 overflow-hidden">
+          <button class="faq-question w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-bold text-white hover:text-sky-400 transition">
+            <span>Onde o sistema fica hospedado? Terei acesso aos meus dados?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer hidden p-5 pt-0 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/40">
+            Sim, 100%! Configuramos seu sistema em servidores modernos de nuvem com alta segurança, certificado SSL e backups automáticos. Todos os dados da sua empresa pertencem a você e podem ser exportados a qualquer momento em Excel, CSV ou PDF.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item rounded-2xl bg-slate-900/60 border border-slate-800 overflow-hidden">
+          <button class="faq-question w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-bold text-white hover:text-sky-400 transition">
+            <span>Vocês oferecem suporte após a entrega do projeto?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer hidden p-5 pt-0 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/40">
+            Sim! Todo projeto entregue conta com garantia de funcionamento e suporte para dúvidas. Caso queira evoluir o sistema com novos módulos no futuro, temos planos acessíveis de manutenção e evolução contínua.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item rounded-2xl bg-slate-900/60 border border-slate-800 overflow-hidden">
+          <button class="faq-question w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-bold text-white hover:text-sky-400 transition">
+            <span>Como são divididos os pagamentos?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer hidden p-5 pt-0 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/40">
+            Trabalhamos com modelo por etapas (geralmente entrada + entrega final), além de opções via PIX ou cartão de crédito parcelado, garantindo segurança e tranquilidade para ambos os lados.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Final CTA & Contact Section -->
+  <section id="contato" class="py-20 md:py-28 bg-gradient-to-b from-slate-950 via-slate-900 to-darkBg border-t border-slate-800 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-sky-500/30 shadow-2xl relative overflow-hidden">
+        
+        <!-- Background glow -->
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          
+          <!-- Text left -->
+          <div class="md:col-span-6 space-y-4">
+            <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              Pronto para Dar o Próximo Passo?
+            </span>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight">
+              Vamos construir a solução perfeita para a sua empresa.
+            </h2>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Conte-nos brevemente o que você precisa. Vamos analisar e propor um protótipo com orçamento sem custo.
+            </p>
+
+            <div class="pt-4 space-y-2 text-xs text-slate-400">
+              <div class="flex items-center gap-2"><i class="fa-solid fa-bolt text-sky-400"></i> Resposta em até 30 minutos em horário comercial</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-lock text-emerald-400"></i> Sigilo absoluto de dados e ideias</div>
+            </div>
+          </div>
+
+          <!-- Quick Form Right -->
+          <div class="md:col-span-6">
+            <form id="contactForm" class="space-y-3.5 bg-slate-950/80 p-6 rounded-2xl border border-slate-800">
+              <div>
+                <label for="contactName" class="block text-xs font-semibold text-slate-300 mb-1">Seu Nome *</label>
+                <input type="text" id="contactName" placeholder="Ex: Carlos Rocha" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs sm:text-sm focus:outline-none focus:border-sky-500">
+              </div>
+
+              <div>
+                <label for="contactCompany" class="block text-xs font-semibold text-slate-300 mb-1">Nome da Empresa / Escritório</label>
+                <input type="text" id="contactCompany" placeholder="Ex: Rocha &amp; Associados" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs sm:text-sm focus:outline-none focus:border-sky-500">
+              </div>
+
+              <div>
+                <label for="contactService" class="block text-xs font-semibold text-slate-300 mb-1">Qual solução você procura?</label>
+                <select id="contactService" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs sm:text-sm focus:outline-none focus:border-sky-500">
+                  <option value="Dashboard / Painel de Gestão">Dashboard / Painel de Gestão</option>
+                  <option value="Aplicação Web Sob Medida (Fichas/Cadastros)">Aplicação Web Sob Medida (Fichas/Cadastros)</option>
+                  <option value="Robô de Automação / Bot de Notificações">Robô de Automação / Bot de Notificações</option>
+                  <option value="Landing Page / Site Institucional">Landing Page / Site Institucional</option>
+                  <option value="Outro Desafio Específico">Outro Desafio Específico</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="contactNotes" class="block text-xs font-semibold text-slate-300 mb-1">Conte um resumo do seu desafio (Opcional)</label>
+                <textarea id="contactNotes" rows="2" placeholder="Ex: Preciso automatizar o cadastro de fichas de clientes e ter relatórios diários..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs sm:text-sm focus:outline-none focus:border-sky-500"></textarea>
+              </div>
+
+              <button type="submit" class="glow-btn w-full py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white shadow-lg shadow-sky-500/25 flex items-center justify-center gap-2 transition">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Solicitar Diagnóstico via WhatsApp</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-darkBg border-t border-slate-800/80 py-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="md:col-span-2 space-y-4">
+          <img src="assets/logo.svg" alt="TARGFI" class="h-9 w-auto">
+          <p class="max-w-sm text-slate-400 leading-relaxed text-xs">
+            Desenvolvemos sistemas inteligentes, dashboards interativos, robôs de automação (RPA) e sites que colocam sua empresa em outro patamar de produtividade.
+          </p>
+          <div class="flex items-center gap-3 text-slate-400 text-base">
+            <a href="javascript:void(0)" onclick="openWhatsApp('Olá TARGFI!')" class="hover:text-emerald-400 transition"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://github.com/carlosfrochaf" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:contato@targfi.com.br" class="hover:text-sky-400 transition"><i class="fa-regular fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Soluções -->
+        <div class="space-y-2">
+          <div class="text-xs font-bold text-white uppercase tracking-wider mb-3">Soluções</div>
+          <div><a href="#solucoes" class="hover:text-sky-400 transition">Dashboards &amp; BI</a></div>
+          <div><a href="#portfolio" class="hover:text-sky-400 transition">FichaAdv &amp; Gestão</a></div>
+          <div><a href="#portfolio" class="hover:text-sky-400 transition">Robô Monitor DJE/TRT-3</a></div>
+          <div><a href="#portfolio" class="hover:text-sky-400 transition">Agenda Aí</a></div>
+          <div><a href="#solucoes" class="hover:text-sky-400 transition">Landing Pages</a></div>
+        </div>
+
+        <!-- Col 3: Navegação & Contato -->
+        <div class="space-y-2">
+          <div class="text-xs font-bold text-white uppercase tracking-wider mb-3">TARGFI</div>
+          <div><a href="#live-demo" class="hover:text-sky-400 transition">Live Demo Interativo</a></div>
+          <div><a href="#simulador" class="hover:text-sky-400 transition">Simulador de Custos</a></div>
+          <div><a href="#metodo" class="hover:text-sky-400 transition">Como Trabalhamos</a></div>
+          <div><a href="#faq" class="hover:text-sky-400 transition">Dúvidas Frequentes</a></div>
+          <div><a href="javascript:void(0)" onclick="openWhatsApp('Olá TARGFI!')" class="text-emerald-400 hover:text-emerald-300 font-semibold transition">Falar no WhatsApp &rarr;</a></div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>&copy; 2026 TARGFI Tecnologia &amp; Sistemas. Todos os direitos reservados.</div>
+        <div class="flex items-center gap-4">
+          <span>Feito sob medida com alta performance</span>
+          <span>•</span>
+          <a href="#" class="hover:text-slate-400">Privacidade</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Modal for Project Details -->
+  <div id="projectModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 hidden">
+    <!-- Backdrop overlay -->
+    <div id="modalOverlay" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+
+    <!-- Modal Card Content -->
+    <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl bg-slate-900 border border-slate-700 shadow-2xl p-6 sm:p-8 z-10 space-y-6">
+      
+      <!-- Close Button -->
+      <button id="closeModalBtn" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span id="modalCategory" class="px-2.5 py-0.5 rounded text-xs font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20"></span>
+          <span class="text-xs text-slate-400">• Case de Sucesso TARGFI</span>
+        </div>
+        <h3 id="modalTitle" class="text-2xl sm:text-3xl font-extrabold text-white"></h3>
+        <p id="modalHeadline" class="text-sm text-slate-300 mt-2 font-medium"></p>
+      </div>
+
+      <!-- Modal Image Mockup -->
+      <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950 p-2">
+        <img id="modalImage" src="" alt="Projeto TARGFI" class="w-full h-auto rounded-lg">
+      </div>
+
+      <!-- Problem & Solution Columns -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-rose-500/20">
+          <div class="text-xs font-bold uppercase tracking-wider text-rose-400 mb-1 flex items-center gap-1.5">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>O Desafio do Cliente</span>
+          </div>
+          <p id="modalProblem" class="text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-emerald-500/20">
+          <div class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>A Solução TARGFI</span>
+          </div>
+          <p id="modalSolution" class="text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
+        </div>
+      </div>
+
+      <!-- Results List -->
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Resultados Obtidos</div>
+        <ul id="modalResults" class="space-y-1.5"></ul>
+      </div>
+
+      <!-- Tech Stack -->
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Tecnologias Utilizadas</div>
+        <div id="modalTechStack" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <!-- Modal WhatsApp CTA Button -->
+      <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-xs text-slate-400">
+          Deseja uma solução sob medida similar para sua empresa?
+        </div>
+        <button id="modalWhatsAppBtn" class="glow-btn w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-xs sm:text-sm bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span>Quero uma Solução Como Esta</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>

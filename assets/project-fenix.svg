@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="fnxBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E1B4B" />
+    </linearGradient>
+    <linearGradient id="fnxOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F97316" />
+      <stop offset="100%" stop-color="#EF4444" />
+    </linearGradient>
+    <linearGradient id="heroCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#fnxBg)" />
+  <rect x="1" y="1" width="798" height="498" rx="15" stroke="#334155" stroke-width="1.5" />
+
+  <!-- Browser Header -->
+  <rect x="0" y="0" width="800" height="48" rx="16" fill="#1E293B" />
+  <circle cx="28" cy="24" r="6" fill="#EF4444" />
+  <circle cx="48" cy="24" r="6" fill="#F59E0B" />
+  <circle cx="68" cy="24" r="6" fill="#10B981" />
+  <rect x="180" y="10" width="440" height="28" rx="14" fill="#0F172A" stroke="#334155" />
+  <text x="240" y="28" font-family="system-ui, sans-serif" font-size="11.5" fill="#94A3B8">🔒 https://fenixcontabil.com.br — Landing Page de Alta Conversão</text>
+
+  <!-- Website Nav inside mockup -->
+  <g transform="translate(40, 68)">
+    <text x="0" y="22" font-family="system-ui, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">FÊNIX <tspan fill="#F97316">CONTÁBIL</tspan></text>
+    <text x="280" y="20" font-family="system-ui, sans-serif" font-size="12" fill="#94A3B8">Serviços    Sobre Nós    Planos    Depoimentos</text>
+    <rect x="610" y="2" width="110" height="28" rx="6" fill="url(#fnxOrange)" />
+    <text x="625" y="20" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Fale Conosco</text>
+  </g>
+
+  <!-- Hero Content inside mockup -->
+  <g transform="translate(40, 130)">
+    <!-- Badge -->
+    <rect x="0" y="0" width="230" height="24" rx="12" fill="#F97316" fill-opacity="0.15" stroke="#F97316" stroke-opacity="0.4" />
+    <text x="14" y="16" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#FB923C">★ Assessoria Tributária de Elite</text>
+
+    <!-- Main Title -->
+    <text x="0" y="60" font-family="system-ui, sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">Contabilidade Estratégica</text>
+    <text x="0" y="96" font-family="system-ui, sans-serif" font-size="28" font-weight="800" fill="url(#fnxOrange)">para Empresas que Faturam</text>
+
+    <!-- Subtitle -->
+    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="13" fill="#94A3B8">Redução legal de impostos, conformidade fiscal e</text>
+    <text x="0" y="150" font-family="system-ui, sans-serif" font-size="13" fill="#94A3B8">atendimento ágil via WhatsApp para o seu negócio crescer.</text>
+
+    <!-- CTA buttons -->
+    <rect x="0" y="175" width="160" height="42" rx="8" fill="url(#fnxOrange)" />
+    <text x="24" y="201" font-family="system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#FFFFFF">Abrir Empresa Grátis</text>
+
+    <rect x="175" y="175" width="145" height="42" rx="8" fill="#1E293B" stroke="#475569" />
+    <text x="195" y="201" font-family="system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#E2E8F0">Simular Economia</text>
+  </g>
+
+  <!-- Right Floating Cards inside mockup -->
+  <g transform="translate(440, 130)">
+    <!-- Card 1 -->
+    <rect x="0" y="0" width="310" height="135" rx="12" fill="url(#heroCardGrad)" stroke="#334155" />
+    <circle cx="36" cy="36" r="18" fill="#F97316" fill-opacity="0.2" />
+    <text x="28" y="42" font-family="system-ui, sans-serif" font-size="16" fill="#FB923C">📈</text>
+    <text x="70" y="32" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Economia Tributária Real</text>
+    <text x="70" y="48" font-family="system-ui, sans-serif" font-size="11" fill="#94A3B8">Média comprovada em nossos clientes</text>
+    <text x="24" y="102" font-family="system-ui, sans-serif" font-size="32" font-weight="800" fill="#34D399">-32%</text>
+    <text x="120" y="96" font-family="system-ui, sans-serif" font-size="11" fill="#CBD5E1">em custos tributários desnecessários</text>
+
+    <!-- Card 2 -->
+    <rect x="20" y="155" width="290" height="125" rx="12" fill="url(#heroCardGrad)" stroke="#334155" />
+    <text x="40" y="185" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">Tempo Médio de Resposta</text>
+    <text x="40" y="235" font-family="system-ui, sans-serif" font-size="30" font-weight="800" fill="#38BDF8">&lt; 15 min</text>
+    <text x="40" y="260" font-family="system-ui, sans-serif" font-size="10.5" fill="#94A3B8">Atendimento dedicado via WhatsApp</text>
+  </g>
+
+  <!-- Bottom highlight strip -->
+  <g transform="translate(40, 390)">
+    <rect x="0" y="0" width="720" height="60" rx="10" fill="#0F172A" stroke="#334155" />
+    <text x="30" y="35" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#CBD5E1">⭐ Mais de 250 empresas atendidas</text>
+    <text x="270" y="35" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#CBD5E1">⚡ Velocidade no Google: 99/100</text>
+    <text x="510" y="35" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#CBD5E1">🔒 100% em conformidade LGPD</text>
+  </g>
+</svg>
