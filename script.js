@@ -80,7 +80,7 @@ const projectsData = {
 };
 
 // Global WhatsApp target (easily customized)
-const TARGFI_PHONE = "5531999999999"; // Format: DDI + DDD + Number
+const TARGFI_PHONE = "5531933044757"; // Format: DDI + DDD + Number
 
 // Helper to open WhatsApp
 function openWhatsApp(msg) {

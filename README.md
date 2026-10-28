@@ -68,10 +68,10 @@ Depois abra no navegador: [http://localhost:3000](http://localhost:3000)
 
 ## ⚙️ Como Personalizar Seus Contatos
 
-### 1. Alterar o Número de WhatsApp
-Abra o arquivo `script.js` e na linha 83 altere a constante:
+### 1. Número de WhatsApp Configurado
+O número configurado é **(31) 93304-4757**:
 ```javascript
-const TARGFI_PHONE = "5531999999999"; // Substitua pelo seu DDD e telefone real
+const TARGFI_PHONE = "5531933044757"; // DDI (55) + DDD (31) + Número
 ```
 
 ### 2. Alterar E-mail e Redes
